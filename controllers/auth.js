@@ -1,8 +1,7 @@
 var express = require('express');
+var passport = require('../config/passportConfig');
 var db = require('../models');
 var router = express.Router();
-var passport = require('../config/passportConfig');
-
 
 router.get('/login', function(req, res) {
     res.render('auth/loginForm');
@@ -49,7 +48,7 @@ router.post('/signup', function(req, res, next) {
 
 router.get('/logout', function(req, res) {
     req.logout();
-    req.flash('Logged out');
+    req.flash('Success', 'Logged out');
     res.redirect('/');
 });
 
